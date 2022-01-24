@@ -1,5 +1,7 @@
-# Notes-Backend App
+# Phonebook-Back
 
-Here is the notes app made with NodeJS and Express only. </br>
+This is continuation of Phonebook-frontend-app, which I created earlier and published in GitLab. </br>
 
-It starts the server on localhost 3001. The browser shows the notes. App is the same with the notes-front but it is built in the backend.
+Phonebook-back is also part of university of Turku exercises, which I am now completing. </br>
+
+Tech used: Node, Express, maybe Nodemon. Also, HTTP requests are tested in Postman.
