@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 let persons = [
     {
@@ -51,6 +54,31 @@ app.delete('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   persons = persons.filter(person => person.id !== id)
   response.status(204).end()
+})
+
+const randomId = () => {
+  const maxId = persons.length > 0 ? persons.map(p => p.id).sort((a,b) => a - b).reverse()[0] : 1
+  const random = Math.floor(Math.random(maxId) * 120)
+  if (persons.map(person => person.id) !== random) {
+    return random
+  } else {
+    return randomId()
+  }
+}
+
+app.post('/api/persons', (request, response) => {
+  const body = request.body
+
+  const person = {
+    name: body.name,
+    number: body.number,
+    id: randomId()
+  }
+
+  persons = persons.concat(person)
+
+  response.json(person)
+
 })
 
 const PORT = 3001
