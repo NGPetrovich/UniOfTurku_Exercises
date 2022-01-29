@@ -27,9 +27,9 @@ let persons = [
     }
 ]
 
-app.get('/api', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
-})
+// app.get('/api', (req, res) => {
+//   res.send('<h1>Hello World!</h1>')
+// })
 
 app.get('/api/persons', (req, res) => {
   res.json(persons)
@@ -39,7 +39,7 @@ app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   console.log(id, typeof id)
   const person = persons.find(person => {
-    console.log(person.id, typeof person.id, id, typeof id, person.id === id)
+    // console.log(person.id, typeof person.id, id, typeof id, person.id === id)
     return person.id === id
   })
 
@@ -66,8 +66,59 @@ const randomId = () => {
   }
 }
 
+// const id = persons.map(i => i.id)
+// console.log(id)
+
+// const nameChecker = (id) => {
+//   console.log(id)
+//   return persons[0].name
+// }
+  
+// console.log(persons.map(name = ))
+
 app.post('/api/persons', (request, response) => {
   const body = request.body
+
+  if (body.name === undefined) {
+    return response.status(400).json({error: 'name is missing'})
+  }
+  
+  if (body.number === undefined) {
+    return response.status(400).json({error: 'number is missing'})
+  }
+
+  if (body.name === persons[0].name) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
+
+  if (body.name === persons[1].name) {
+  console.log(body.name)
+  return response.status(400).json({error: 'name must be unique'})
+  }
+  if (body.name === persons[2].name) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
+  if (body.name === persons[3].name) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
+
+  if (body.name === persons.map(person => person.name)) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
+
+  if (body.name === persons.filter(person => person.name === body.name)) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
+
+  if (persons.reduce(person => person.name === body.name)) {
+    console.log(body.name)
+    return response.status(400).json({error: 'name must be unique'})
+  }
 
   const person = {
     name: body.name,
