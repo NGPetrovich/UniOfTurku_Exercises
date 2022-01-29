@@ -1,29 +1,50 @@
 const express = require('express')
 const app = express()
 
-let notes = [
+let persons = [
     {
-      id: 1,
-      content: 'HTML on helppoa',
-      date: '2017-12-10T17:30:31.098Z',
-      important: true
+      name: "Arto Hellas",
+      number: "040-1234567",
+      id: 1
     },
     {
-      id: 2,
-      content: 'Selain pystyy suorittamaan vain javascriptiä',
-      date: '2017-12-10T18:39:34.091Z',
-      important: false
+      name: "Martti Tienari",
+      number: "040-1234555",
+      id: 2
     },
     {
-      id: 3,
-      content: 'HTTP-protokollan tärkeimmät metodit ovat GET ja POST',
-      date: '2017-12-10T19:20:14.298Z',
-      important: true
+      name: "Arto Jarvinen",
+      number: "040-1234566",
+      id: 3
+    },
+    {
+      name: "Lea Kutvonen",
+      number: "040-1234577",
+      id: 4
     }
 ]
 
+app.get('/api', (req, res) => {
+  res.send('<h1>Hello World!</h1>')
+})
+
 app.get('/api/persons', (req, res) => {
-  res.json(notes)
+  res.json(persons)
+})
+
+app.get('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  console.log(id, typeof id)
+  const person = persons.find(person => {
+    console.log(person.id, typeof person.id, id, typeof id, person.id === id)
+    return person.id === id
+  })
+
+  if ( person ) {
+    response.json(person)
+  } else {
+    response.status(404).end()
+  }
 })
 
 const PORT = 3001
