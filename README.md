@@ -1,5 +1,5 @@
-# Notes-Backend App
+# Notes-Frontend App
 
-Here is the notes app made with NodeJS and Express only. </br>
+Here is the notes app made with ReactJS. </br>
 
-It starts the server on localhost 3001. The browser shows the notes. App is the same with the notes-front but it is built in the backend.
+It starts the server on localhost 3000. The browser shows the notes. The app is supposed to support notes-backend app (can be found on the branch "notes").
