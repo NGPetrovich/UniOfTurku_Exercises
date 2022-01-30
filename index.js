@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
+app.use(cors())
 app.use(bodyParser.json())
 
 let notes = [
@@ -79,12 +81,21 @@ app.post('/notes', (request, response) => {
   response.json(note)
 })
 
-// app.post('/notes', (request, response) => {
-//   const note = request.body
-//   console.log(note)
+const logger = (request, response, next) => {
+  console.log('Method:',request.method)
+  console.log('Path:  ', request.path)
+  console.log('Body:  ', request.body)
+  console.log('---')
+  next()
+}
 
-//   response.json(note)
-// })
+app.use(logger)
+
+const error = (request, response) => {
+  response.status(404).send({error: 'unknown endpoint'})
+}
+
+app.use(error)
 
 const PORT = 3001;
 app.listen(PORT, () => {
