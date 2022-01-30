@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+app.use(express.static('build'))
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -96,8 +97,6 @@ const error = (request, response) => {
 }
 
 app.use(error)
-
-console.log("Localhost is not bugged.")
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
