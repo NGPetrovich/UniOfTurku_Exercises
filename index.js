@@ -97,7 +97,13 @@ const error = (request, response) => {
 
 app.use(error)
 
+<<<<<<< HEAD
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Server running on the port ${PORT}`)
+=======
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on the port ${PORT}`)
+>>>>>>> 421f77930b83d98b88a7c8ac626497e856c6aef3
 });
