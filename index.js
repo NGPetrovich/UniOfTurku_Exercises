@@ -91,14 +91,13 @@ app.post('/notes', (request, response) => {
 
 // app.use(logger)
 
-// const error = (request, response) => {
-//   response.status(404).send({error: 'unknown endpoint'})
-// }
+const error = (request, response) => {
+  response.status(404).send({error: 'unknown endpoint'})
+}
 
-// app.use(error)
+app.use(error)
 
-
-console.log("Continue checking")
+console.log("Localhost is not bugged.")
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
