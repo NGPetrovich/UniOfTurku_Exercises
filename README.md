@@ -14,7 +14,7 @@ The branches of this repository represent the following projects: </br>
   <li>phonebook-front = App I created to complete exercises from the Part 2</li>
   <li>phonebook-back = App I created to complete exercises 3.1-3.5</li>
   <ul>
-    <li>Link of the deployed app: https://cryptic-crag-06646.herokuapp.com/api/persons/</li>
+    <li>Link of the deployed app: https://nikita-book.herokuapp.com/api/persons/</li>
   </ul>
   </br>
   <li>more projects to be added...</li>
