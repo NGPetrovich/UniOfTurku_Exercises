@@ -1,9 +1,9 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const cors = require('cors')
-
+app.use(express.static('build'))
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -30,15 +30,30 @@ let persons = [
     }
 ]
 
-// app.get('/api', (req, res) => {
-//   res.send('<h1>Hello World!</h1>')
-// })
+app.get('/api/notes', (request, response) => {
+    response.send(notes)
+});
 
-app.get('/api/persons', (req, res) => {
-  res.json(persons)
-})
+app.get('/api/notes/:id', (request, response) => {
+    const id = Number(request.params.id)
+    console.log(id)
+    const note = notes.find(note => note.id === id)
+    // const note = notes.find(note => {
+    //     console.log(note.id, typeof note.id, id, typeof id, note.id === id)
+    //     return note.id === id
+    //     //parseInt(id)
+    // })
 
-app.get('/api/persons/:id', (request, response) => {
+    if ( note ) {
+        response.json(note)
+    } else {
+        response.status(404).end()
+    }
+    // console.log(note)
+    // response.json(note)
+});
+
+app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   console.log(id, typeof id)
   const person = persons.find(person => {
@@ -69,17 +84,7 @@ const randomId = () => {
   }
 }
 
-// const id = persons.map(i => i.id)
-// console.log(id)
-
-// const nameChecker = (id) => {
-//   console.log(id)
-//   return persons[0].name
-// }
-  
-// console.log(persons.map(name = ))
-
-app.post('/api/persons', (request, response) => {
+app.post('/api/notes', (request, response) => {
   const body = request.body
 
   if (body.name === undefined) {
@@ -152,7 +157,7 @@ const error = (request, response) => {
 
 app.use(error)
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on the port ${PORT}`)
+});
