@@ -29,15 +29,15 @@ let persons = [
     }
 ]
 
-app.get('/api/notes', (request, response) => {
-    response.send(notes)
+app.get('/api/persons', (request, response) => {
+    response.send(persons)
 });
 
-app.get('/api/notes/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     console.log(id)
-    const note = notes.find(note => note.id === id)
-    // const note = notes.find(note => {
+    const note = persons.find(note => note.id === id)
+    // const note = persons.find(note => {
     //     console.log(note.id, typeof note.id, id, typeof id, note.id === id)
     //     return note.id === id
     //     //parseInt(id)
@@ -52,7 +52,7 @@ app.get('/api/notes/:id', (request, response) => {
     // response.json(note)
 });
 
-app.delete('/api/notes/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   console.log(id, typeof id)
   const person = persons.find(person => {
@@ -83,7 +83,7 @@ const randomId = () => {
   }
 }
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/persons', (request, response) => {
   const body = request.body
 
   if (body.name === undefined) {
