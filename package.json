@@ -1,7 +1,7 @@
 {
-  "name": "uniofturku_exercises",
-  "version": "0.0.1",
-  "description": "I follow the course of FullStack development in the University of Turku. </br> </br>",
+  "name": "phonebook-back",
+  "version": "1.0.0",
+  "description": "Exercise to practice Backend development",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
