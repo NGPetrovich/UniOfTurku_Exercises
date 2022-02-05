@@ -47,8 +47,6 @@ app.get('/api/notes/:id', (request, response) => {
     } else {
         response.status(404).end()
     }
-    // console.log(note)
-    // response.json(note)
 });
 
 app.delete('/api/notes/:id', (request, response) => {
