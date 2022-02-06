@@ -10,22 +10,22 @@ app.use(bodyParser.json())
 let persons = [
     {
       name: "Arto Hellas",
-      number: "040-1234567",
+      phone: "040-1234567",
       id: 1
     },
     {
       name: "Martti Tienari",
-      number: "040-1234555",
+      phone: "040-1234555",
       id: 2
     },
     {
       name: "Arto Jarvinen",
-      number: "040-1234566",
+      phone: "040-1234566",
       id: 3
     },
     {
       name: "Lea Kutvonen",
-      number: "040-1234577",
+      phone: "040-1234577",
       id: 4
     }
 ]
@@ -37,15 +37,15 @@ app.get('/api/persons', (request, response) => {
 app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     console.log(id)
-    const note = persons.find(note => note.id === id)
+    const contact = persons.find(contact => contact.id === id)
     // const note = persons.find(note => {
     //     console.log(note.id, typeof note.id, id, typeof id, note.id === id)
     //     return note.id === id
     //     //parseInt(id)
     // })
 
-    if ( note ) {
-        response.json(note)
+    if ( contact ) {
+        response.json(contact)
     } else {
         response.status(404).end()
     }
@@ -91,7 +91,7 @@ app.post('/api/persons', (request, response) => {
     return response.status(400).json({error: 'name is missing'})
   }
   
-  if (body.number === undefined) {
+  if (body.phone === undefined) {
     return response.status(400).json({error: 'number is missing'})
   }
 
@@ -130,7 +130,7 @@ app.post('/api/persons', (request, response) => {
 
   const person = {
     name: body.name,
-    number: body.number,
+    phone: body.phone,
     id: randomId()
   }
 
