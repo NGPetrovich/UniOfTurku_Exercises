@@ -87,11 +87,7 @@ app.get('/api/notes', (request, response) => {
 //   response.status(204).end()
 // })
 
-// const generateId = () => {
-//   const maxId = notes.length > 0 ? notes.map(n => n.id).sort((a,b) => a - b).reverse()[0] : 1
-//   return maxId + 1
-// }
-
+// New update
 // TO EDIT ABOVE
 
 // app.post('/api/notes', (request, response) => {
