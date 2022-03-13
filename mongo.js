@@ -1,3 +1,5 @@
+// USED FOR DEVELOPMENT STAGES FOR TESTING
+
 const mongoose = require('mongoose')
 
 const url = 'mongodb+srv://fullstackUser:password@fullstacktest.hehjc.mongodb.net/fullstack-notes'
@@ -11,14 +13,15 @@ const Note = mongoose.model('Note', {
 })
 
 
-Note
-  .find({})
-  .then(result => {
-    result.forEach(note => {
-      console.log(note)
-    })
-    mongoose.connection.close()
-})
+// Note
+//   .find({})
+//   .then(result => {
+//     result.forEach(note => {
+//       console.log(note)
+//     })
+//     mongoose.connection.close()
+// })
+
 
 // const note = new Note({
 //   content: 'And here it comes another one!',
@@ -31,4 +34,4 @@ Note
 //   .then(response => {
 //     console.log('note saved!')
 //     mongoose.connection.close()
-//   })
+// })
