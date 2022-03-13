@@ -1,0 +1,30 @@
+{
+  "name": "phonebook-back",
+  "version": "1.0.0",
+  "description": "Exercise to practice Backend development",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NGPetrovich/UniOfTurku_Exercises.git"
+  },
+  "author": "Nikita Goncharenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NGPetrovich/UniOfTurku_Exercises/issues"
+  },
+  "homepage": "https://github.com/NGPetrovich/UniOfTurku_Exercises#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
