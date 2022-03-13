@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/components/name.css"],"names":[],"mappings":"AAAA,OACI,YAAa,CACb,0BACJ,CAEA,IACI,YACJ","file":"main.680f41b7.chunk.css","sourcesContent":[".table {\n    display: flex;\n    justify-content: flex-start;\n}\n\n.ot {\n    padding: 10px 10px;\n}"]}
