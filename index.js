@@ -33,6 +33,17 @@ app.get('/api/persons/:id', (request, response) => {
     })
 })
 
+app.delete('/api/persons/:id', (request, response) => {
+  Person
+    .findByIdAndRemove(request.params.id)
+    .then(result => {
+      response.status(204).end()
+    })
+    .catch(error => {
+      response.status(204).send({ error: 'malformatted id' })
+    })
+})
+
 app.post('/api/persons', (request, response) => {
   const body = request.body
 
